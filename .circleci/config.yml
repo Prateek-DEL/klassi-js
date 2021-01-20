@@ -52,12 +52,20 @@ jobs:
   acceptance_test_base: &acceptance_test_base
     docker:
       - image: circleci/node:12.14.1-browsers
-    working_directory: ~/klassiG
+    working_directory: ~/klassi-js
+    
     steps:
       - run:
           name: Avoid hosts unknown for github
           command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+          
+      - run:
+          name: Checkout the klassi-js repo
+          command: git clone git@github.com:Prateek-DEL/klassi-js.git
 
+      - run:
+          name: Check out the working branch
+          command: git checkout master
      
 
 
