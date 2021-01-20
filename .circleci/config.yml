@@ -70,9 +70,7 @@ jobs:
           name: pwd command after clone
           command: pwd          
         
-      - run:
-          name: Change roote directory for repo after clone
-          command: cd /home/circleci/build
+
 
       - run:
           name: pwd after change builds
