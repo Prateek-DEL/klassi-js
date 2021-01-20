@@ -98,6 +98,7 @@ jobs:
           
       - run:
           name: Run acceptance tests
+          path: ~/klassi-js/projects/example-test-suite
           command: yarn run cilb${STAGE} ${BROWSER}
 
 
