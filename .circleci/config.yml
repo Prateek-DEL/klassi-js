@@ -55,7 +55,8 @@ jobs:
     working_directory: ~/klassi-js
     
     steps:
-     
+      - checkout
+      
       - run:
           name: changing and Root directory for repo after clone
           command: ls -la
