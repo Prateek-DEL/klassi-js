@@ -73,11 +73,22 @@ jobs:
       - run:
           name: Change roote directory for repo after clone
           command: cd /home/circleci/build
+
+      - run:
+          name: pwd after change builds
+          command: pwd          
           
       - run:
           name: changing and Root directory for repo after clone
           command: ls -la
-    
+          
+      - run:
+          name: Change roote directory for repo after clone
+          command: cd /home/circleci/build/klassi-js          
+      
+      - run:
+          name: add more pwd
+          command: pwd    
 
       - run:
           name: Install the klassi framework dependencies
