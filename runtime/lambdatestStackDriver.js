@@ -23,6 +23,7 @@ const lambdatest = require('./remotes/lambdatest.js');
 
 module.exports = async function lambdatestStackDriver(options, configType) {
   const config = loadConfig(`./lambdatest/${configType}.json`);
+  config.tunnelName=global.settings.remoteConfig
   const credentials = lambdatest.getCredentials();
   const { user } = credentials;
   const { key } = credentials;
@@ -45,7 +46,7 @@ module.exports = async function lambdatestStackDriver(options, configType) {
     exclude: [],
     maxInstances: 10,
     capabilities: config,
-
+     
     coloredLogs: true,
     screenshotPath: './errorShots/',
     baseUrl: '',

@@ -5,6 +5,8 @@
   "browserName" : "Safari",
   "version" : "12.0",
   "resolution" : "1280x1024",
+  "tunnel": true,
+
 
   "javascriptEnabled":true,
   "locationContextEnabled":true,

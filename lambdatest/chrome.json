@@ -1,3 +1,4 @@
+
 {
   "project":"Klassi Automated Test",
 
@@ -7,6 +8,7 @@
   "browserName": "Chrome",
   "browser_version": "87.0",
   "resolution": "1280x800",
+  "tunnel": true,
   "chromeOptions": {
     "args": ["disable-infobars"]
   },

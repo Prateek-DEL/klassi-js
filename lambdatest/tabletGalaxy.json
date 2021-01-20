@@ -6,6 +6,8 @@
   "realMobile": "true",
   "os_version": "8.1",
   "deviceOrientation": "portrait",
+  "tunnel": true,
+
 
   "javascriptEnabled":true,
   "locationContextEnabled":true,
