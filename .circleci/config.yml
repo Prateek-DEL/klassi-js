@@ -60,12 +60,12 @@ jobs:
       - run:
           name: Checkout the klassi-js repo
           path: ~/klassi-js/projects/example-test-suite/projects
-          command: git clone https://github.com/Prateek-DEL/klassi-js.git -b master
+          command: git clone https://github.com/Prateek-DEL/klassi-js.git
      
       - run:
           name: Check out the working branch
           path: ~/klassiG/klassi-js
-          command: git checkout master
+          command: git checkout ${CIRCLE_BRANCH}
           
       - run:
           name: Generate dependency cache key
