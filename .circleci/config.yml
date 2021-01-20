@@ -60,9 +60,6 @@ jobs:
           name: changing and Root directory for repo after clone
           command: ls -la
           
-      - run:
-          name: Checkout the klassi-js repo
-          command: git clone https://github.com/Prateek-DEL/klassi-js.git -b master
      
           
       - run:
