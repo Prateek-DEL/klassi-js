@@ -110,15 +110,8 @@ jobs:
           
       - run:
           name: Run acceptance tests
-          path: ~/klassi-js/projects/example-test-suite
           command: yarn run cilb${STAGE} ${BROWSER}
 
-      - store_artifacts:
-          path: ~/klassi-js/projects/example-test-suite/artifacts
-
-      - store_test_results:
-          command: sleep 2
-          path: ~/klassi-js/projects/example-test-suite/reports
 
   acceptance_test_chrome:
     <<: *acceptance_test_base
