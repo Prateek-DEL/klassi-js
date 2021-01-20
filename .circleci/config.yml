@@ -62,8 +62,7 @@ jobs:
           
       - run:
           name: Checkout the klassi-js repo
-          path: ~/klassi-js/projects/example-test-suite/projects
-          command: git clone https://github.com/Prateek-DEL/klassi-js.git
+          command: git clone https://github.com/Prateek-DEL/klassi-js.git -b master
      
           
       - run:
@@ -77,20 +76,14 @@ jobs:
 
       - run:
           name: Install the klassi framework dependencies
-          path: ~/klassiG/klassi-js
+          path: ~/klassi-js
           command: yarn install
           
       - run:
           name: Install the Project dependencies
-          path: ~/klassiG/klassi-js/projects/example-test-suite
+          path: ~/klassi-js/projects/example-test-suite
           command: yarn install
 
-      - save_cache:
-          paths:
-            - ~/.cache/yarn
-            - ~/klassiG/klassi-js/yarn.lock
-            - ~/klassiG/klassi-js/projects/example-test-suite/yarn.lock
-          key: klassi-yarn-cache-{{ checksum "CACHE_KEY" }}
 
       # Save yarn cache, don't include node modules because we end up with an
       # archive so large that unarchiving takes longer than the yarn install
