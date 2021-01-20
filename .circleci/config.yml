@@ -61,7 +61,7 @@ jobs:
           
       - run:
           name: Checkout the klassi-js repo
-          command: git clone git@github.com:Prateek-DEL/klassi-js.git
+          command: git clone git@github.com:Prateek-DEL/klassi-js.git -b master
      
       - run:
           name: Root directory for repo after clone
@@ -71,11 +71,7 @@ jobs:
           name: Change Root directory for repo after clone
           command: cd klassi-js        
 
-      - run:
-          name: Check out the working branch
-          command: git checkout master
-     
-
+    
 
       - run:
           name: Install the klassi framework dependencies
