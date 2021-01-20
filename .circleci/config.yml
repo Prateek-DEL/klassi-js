@@ -52,15 +52,10 @@ jobs:
   acceptance_test_base: &acceptance_test_base
     docker:
       - image: circleci/node:12.14.1-browsers
-    working_directory: ~/klassi-js
+    working_directory: ~/build
     
     steps:
-      - run:
-          name: Avoid hosts unknown for github
-          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
-      - run:
-          name: Change Root directory for repo after clone
-          command: cd klassi-js
+     
           
       - run:
           name: Checkout the klassi-js repo
@@ -81,7 +76,7 @@ jobs:
 
       - run:
           name: Install the Project dependencies
-          path: ~/klassi-js/projects/example-test-suite
+          path: ~/projects/example-test-suite
           command: yarn install
 
       # Save yarn cache, don't include node modules because we end up with an
@@ -92,7 +87,7 @@ jobs:
           
       - run:
           name: Checking directory content
-          path: ~~/klassi-js/projects/example-test-suite
+          path: ~/projects/example-test-suite
           command: ls -la
           
       - run:
@@ -101,15 +96,15 @@ jobs:
           
       - run:
           name: Run acceptance tests
-          path: ~~/klassi-js/projects/example-test-suite
+          path: ~/projects/example-test-suite
           command: yarn run cilb${STAGE} ${BROWSER}
 
       - store_artifacts:
-          path: ~~/klassi-js/projects/example-test-suite/artifacts
+          path: ~/projects/example-test-suite/artifacts
 
       - store_test_results:
           command: sleep 2
-          path: ~~/klassi-js/projects/example-test-suite/reports
+          path: ~/projects/example-test-suite/reports
 
   acceptance_test_chrome:
     <<: *acceptance_test_base
