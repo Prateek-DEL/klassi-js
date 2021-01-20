@@ -69,7 +69,11 @@ jobs:
         
       - run:
           name: Change roote directory for repo after clone
-          command: cd ~/klassi-js
+          command: cd klassi-js
+          
+      - run:
+          name: changing and Root directory for repo after clone
+          command: ls -la
     
 
       - run:
