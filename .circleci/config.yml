@@ -52,29 +52,29 @@ jobs:
   acceptance_test_base: &acceptance_test_base
     docker:
       - image: circleci/node:12.14.1-browsers
-    working_directory: ~/klassi-js/projects/example-test-suite
+    working_directory: ~/klassiG
     
     steps:
      
           
       - run:
           name: Checkout the klassi-js repo
-          
+          path: path: ~/klassi-js/projects/example-test-suite/projects
           command: git clone https://github.com/Prateek-DEL/klassi-js.git -b master
      
       - run:
-          name: Root directory for repo after clone
-          command: ls -la
+          name: Check out the working branch
+          path: ~/klassiG/klassi-js
+          command: git checkout ${CIRCLE_BRANCH}
           
       - run:
-          name: pwd command after clone
-          command: pwd          
+          name: Generate dependency cache key
+          command: cat ~/klassiG/klassi-js/package.json ~/klassiG/klassi-js/projects/example-test-suite/package.json > CACHE_KEY          
         
 
 
-      - run:
-          name: pwd after change builds
-          command: pwd          
+      - restore_cache:
+          key: klassi-yarn-cache-{{ checksum "CACHE_KEY" }}          
           
       - run:
           name: changing and Root directory for repo after clone
@@ -87,15 +87,20 @@ jobs:
 
       - run:
           name: Install the klassi framework dependencies
+          path: ~/klassiG/klassi-js
           command: yarn install
           
       - run:
-          name: Change roote directory for repo after clone
-          command: cd ~/klassi-js/projects/example-test-suite
-
-      - run:
           name: Install the Project dependencies
+          path: ~/klassiG/klassi-js/projects/example-test-suite
           command: yarn install
+
+      - save_cache:
+          paths:
+            - ~/.cache/yarn
+            - ~/klassiG/klassi-js/yarn.lock
+            - ~/klassiG/klassi-js/projects/example-test-suite/yarn.lock
+          key: klassi-yarn-cache-{{ checksum "CACHE_KEY" }}
 
       # Save yarn cache, don't include node modules because we end up with an
       # archive so large that unarchiving takes longer than the yarn install
