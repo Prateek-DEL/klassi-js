@@ -60,10 +60,7 @@ jobs:
 
      
 
-      - run:
-          name: Check out the working branch
-          path: ~/klassiG/klassi-js
-          command: git checkout ${CIRCLE_BRANCH}
+    
 
       - run:
           name: Generate dependency cache key
