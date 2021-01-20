@@ -67,12 +67,18 @@ jobs:
           command: ls -la
           
         
-
+      - run:
+          name: Change roote directory for repo after clone
+          command: cd klassi-js
     
 
       - run:
           name: Install the klassi framework dependencies
           command: yarn install
+          
+      - run:
+          name: Change roote directory for repo after clone
+          command: cd klassi-js/projects/example-test-suite
 
       - run:
           name: Install the Project dependencies
