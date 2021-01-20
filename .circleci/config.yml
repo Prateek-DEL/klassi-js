@@ -59,7 +59,7 @@ jobs:
           
       - run:
           name: Checkout the klassi-js repo
-          path: path: ~/klassi-js/projects/example-test-suite/projects
+          path: ~/klassi-js/projects/example-test-suite/projects
           command: git clone https://github.com/Prateek-DEL/klassi-js.git -b master
      
       - run:
