@@ -92,7 +92,7 @@ jobs:
       - run:
           name: "adding tunnel name to list"
           background: true
-          command: echo 'export TUNNEL_NAME=`${STAGE} ${BROWSER} >> $BASH_ENV
+          command: echo 'export TUNNEL_NAME=${STAGE}${BROWSER}' >> $BASH_ENV
 
       ##################
       ## Testing setting up lambdatest to execute and shutdown after testing
