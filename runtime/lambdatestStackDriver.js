@@ -39,6 +39,8 @@ module.exports = async function lambdatestStackDriver(options, configType) {
   }
   const NameTunnel= (global.settings.remoteConfig+envName);
   config.tunnelName= NameTunnel
+  console.log("========================= browser######################################################################",global.settings.remoteConfig,global.envConfig)
+  console.log("============================ TunnelNAME+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",NameTunnel)
   const defaults = {
     user,
     key,
