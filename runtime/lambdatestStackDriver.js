@@ -37,7 +37,7 @@ module.exports = async function lambdatestStackDriver(options, configType) {
     // configs can define their own build name or it is inferred from the configType
     config.build = buildNameFromConfig;
   }
-  const NameTunnel= (global.settings.remoteConfig+envName);
+  const NameTunnel= process.env.TUNNEL_NAME;
   config.tunnelName= NameTunnel
   console.log("========================= browser######################################################################",global.settings.remoteConfig,global.envConfig)
   console.log("============================ TunnelNAME+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",NameTunnel)

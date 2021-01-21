@@ -88,7 +88,11 @@ jobs:
       - run:
           name: Root directory content first
           command: ls -la
-
+      
+      - run:
+          name: "adding tunnel name to list"
+          background: true
+          command: echo 'export TUNNEL_NAME=`${STAGE} ${BROWSER} >> $BASH_ENV
 
       ##################
       ## Testing setting up lambdatest to execute and shutdown after testing
@@ -116,7 +120,7 @@ jobs:
                 let PORT=PORT+1
             done
             echo "$PORT" > /tmp/port
-            ./LT --user prateeks@lambdatest.com --key IuCSesD83A7LsTFzEKS0Lb6tzvEfBQ38DMkFTEpudatxxxsdjH --controller circleci --infoAPIPort $PORT --tunnelName ${BROWSER}${STAGE}
+            ./LT --user prateeks@lambdatest.com --key IuCSesD83A7LsTFzEKS0Lb6tzvEfBQ38DMkFTEpudatxxxsdjH --controller circleci --infoAPIPort $PORT --tunnelName $TUNNEL_NAME
           
       - run:
           name: Root directory content
