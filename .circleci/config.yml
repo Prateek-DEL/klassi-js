@@ -121,6 +121,11 @@ jobs:
       - run:
           name: Root directory content
           command: ls -la
+      
+      - run:
+          name: "printing tunnel name to list"
+          background: true
+          command: echo ${STAGE} ${BROWSER}
           
       - run:
           name: Run acceptance tests
