@@ -116,7 +116,7 @@ jobs:
                 let PORT=PORT+1
             done
             echo "$PORT" > /tmp/port
-            ./LT --user prateeks@lambdatest.com --key IuCSesD83A7LsTFzEKS0Lb6tzvEfBQ38DMkFTEpudatxxxsdjH --controller circleci --infoAPIPort $PORT --tunnelName ${BROWSER}            
+            ./LT --user prateeks@lambdatest.com --key IuCSesD83A7LsTFzEKS0Lb6tzvEfBQ38DMkFTEpudatxxxsdjH --controller circleci --infoAPIPort $PORT --tunnelName ${BROWSER}${STAGE}
           
       - run:
           name: Root directory content
