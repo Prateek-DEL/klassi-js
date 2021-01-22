@@ -31,16 +31,16 @@ module.exports = async function lambdatestStackDriver(options, configType) {
 
   if (process.env.CI || process.env.CIRCLE_CI) {
     const { CIRCLE_BUILD_NUM, CIRCLE_JOB, CIRCLE_USERNAME } = process.env;
-
+    const NameTunnel= process.env.TUNNEL_NAME;
+    config.tunnelName= NameTunnel
+    console.log("========================= browser######################################################################",global.settings.remoteConfig,global.envConfig)
+    console.log("============================ TunnelNAME+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",NameTunnel)
     config.build = `CircleCI Build No. #${CIRCLE_BUILD_NUM} for ${CIRCLE_USERNAME}. Job: ${CIRCLE_JOB}`;
   } else if (!config.build) {
     // configs can define their own build name or it is inferred from the configType
     config.build = buildNameFromConfig;
   }
-  const NameTunnel= process.env.TUNNEL_NAME;
-  config.tunnelName= NameTunnel
-  console.log("========================= browser######################################################################",global.settings.remoteConfig,global.envConfig)
-  console.log("============================ TunnelNAME+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++",NameTunnel)
+  
   const defaults = {
     user,
     key,
